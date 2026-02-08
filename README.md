@@ -115,7 +115,6 @@ High accuracy with minimal false positives.
 - Extreme attacks: 100% detected
 - High severity: 95% detected  
 - Medium severity: 87% detected
-- Subtle attacks: 72% detected
 
 **5. Real-Time Detection**  
 ![Timeline](backend/pics/legitimacy_chart5_detection_timeline.png)
