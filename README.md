@@ -286,6 +286,6 @@ Industry-standard ICS security benchmark from SUTD iTrust Centre.
 
 **GenTwin** - Securing Industrial Systems Through Intelligent Simulation
 
-Made by Team Cyborg_26
+Made with ❤️ by Team Cyborg_26
 
 </div>
