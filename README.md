@@ -301,10 +301,10 @@ GenAI Cybersecurity Track
 
 ## Author
 
-Kapilesh
-Hari Kishore
-Koushali
-Giri Karthick
+* Kapilesh
+* Hari Kishore
+* Koushali
+* Giri Karthick
 
 B.Tech Computer Science and Engineering
 Cybersecurity and IoT Specialization
