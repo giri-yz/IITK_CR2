@@ -266,10 +266,10 @@ Industry-standard ICS security benchmark from SUTD iTrust Centre.
 
 ## Team Cyborg_26
 
- **Koushali** 
- **Kapilesh** 
- **Hari Kishore** 
- **Giri Karthick** 
+* **Koushali** 
+* **Kapilesh** 
+* **Hari Kishore** 
+* **Giri Karthick** 
 
 ---
 
