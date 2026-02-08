@@ -1,0 +1,57 @@
+.twin-chart-container {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-default);
+  padding: var(--space-5);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.chart-header h3 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.chart-legend {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.legend-line {
+  width: 28px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.legend-line--twin {
+  background: #60A5FA;
+}
+
+.legend-line--normal {
+  background: #4ADE80;
+}
+
+.legend-line--attack {
+  background: #F87171;
+}
+
+/* Make chart area larger and clearer */
+svg {
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: var(--radius-md);
+}

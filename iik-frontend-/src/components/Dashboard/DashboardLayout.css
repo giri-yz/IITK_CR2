@@ -1,0 +1,79 @@
+.dashboard {
+  display: grid;
+  grid-template-rows: 70px 1fr;  /* Shorter header */
+  height: 100vh;
+  width: 100vw;
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.dashboard-main {
+  overflow: hidden;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 380px;  /* Wider main area, fixed sidebar */
+  gap: var(--space-6);
+  padding: var(--space-6);
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ===== LEFT PANEL (main workspace) ===== */
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  overflow-y: auto;
+  padding-right: var(--space-2);
+}
+
+/* ===== RIGHT PANEL (controls) ===== */
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  overflow-y: auto;
+  padding-right: var(--space-2);
+}
+
+/* ===== SCROLLBAR STYLING ===== */
+
+.left-panel::-webkit-scrollbar,
+.right-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.left-panel::-webkit-scrollbar-track,
+.right-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.left-panel::-webkit-scrollbar-thumb,
+.right-panel::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: var(--radius-full);
+}
+
+.left-panel::-webkit-scrollbar-thumb:hover,
+.right-panel::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
+
+/* ===== SECTION CARDS ===== */
+
+.section-card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-default);
+  overflow: hidden;
+}
+
+.section-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}

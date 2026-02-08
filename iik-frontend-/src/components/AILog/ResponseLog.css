@@ -1,0 +1,192 @@
+.response-log {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  height: 380px;
+  overflow: hidden;
+}
+
+/* ===== LOG HEADER ===== */
+
+.log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--border-default);
+  background: var(--bg-tertiary);
+}
+
+.log-title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.log-title h3 {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.log-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.clear-button {
+  width: 32px;
+  height: 32px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-default);
+}
+
+.clear-button:hover {
+  background: var(--bg-elevated);
+  border-color: var(--border-hover);
+  transform: scale(1.05);
+}
+
+.clear-button:active {
+  transform: scale(0.95);
+}
+
+/* ===== LOG CONTAINER ===== */
+
+.log-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  background: var(--bg-primary);
+}
+
+/* ===== LOG ENTRIES ===== */
+
+.log-entry {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: var(--bg-secondary);
+  border-left: 3px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  animation: slide-in-right var(--duration-normal) var(--ease-default);
+  transition: all var(--duration-fast) var(--ease-default);
+}
+
+.log-entry:hover {
+  background: var(--bg-tertiary);
+  transform: translateX(-2px);
+}
+
+/* Log Entry Types */
+.log-entry--info {
+  border-left-color: var(--primary-blue);
+}
+
+.log-entry--success {
+  border-left-color: var(--status-normal);
+}
+
+.log-entry--warning {
+  border-left-color: var(--status-warning);
+}
+
+.log-entry--danger {
+  border-left-color: var(--status-critical);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.log-entry--processing {
+  border-left-color: var(--status-mitigating);
+  background: rgba(139, 92, 246, 0.05);
+}
+
+.log-timestamp {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  white-space: nowrap;
+  font-weight: var(--font-medium);
+}
+
+.log-message {
+  color: var(--text-primary);
+  line-height: var(--leading-tight);
+  word-break: break-word;
+}
+
+/* ===== LOG FOOTER ===== */
+
+.log-footer {
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--border-default);
+  background: var(--bg-tertiary);
+}
+
+.log-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--status-normal);
+}
+
+.status-dot--active {
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+.status-text {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  font-weight: var(--font-medium);
+}
+
+/* ===== SCROLLBAR ===== */
+
+.log-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.log-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.log-container::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: var(--radius-full);
+}
+
+.log-container::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
+
+/* ===== EMPTY STATE ===== */
+
+.log-container:empty::after {
+  content: 'No logs yet...';
+  display: block;
+  text-align: center;
+  padding: var(--space-8);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}

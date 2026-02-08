@@ -1,0 +1,42 @@
+{
+  "model_info": {
+    "type": "Variational Autoencoder (VAE)",
+    "parameters": 2230,
+    "latent_dimensions": 4,
+    "threshold": 0.118232
+  },
+  "dataset_info": {
+    "normal_samples": 50000,
+    "attack_samples": 5000,
+    "features": 14,
+    "balance": "90.9% normal"
+  },
+  "performance_metrics": {
+    "accuracy": 0.9566,
+    "precision": 0.7724713242961418,
+    "recall": 0.7408,
+    "f1_score": 0.7563042368555385,
+    "specificity": 0.97818,
+    "roc_auc": 0.95459857
+  },
+  "confusion_matrix": {
+    "true_negatives": 48909,
+    "false_positives": 1091,
+    "false_negatives": 1296,
+    "true_positives": 3704
+  },
+  "attack_severity": {
+    "subtle_detected": 0,
+    "medium_detected": 1371,
+    "extreme_detected": 2793,
+    "subtle_rate": 0.0,
+    "extreme_rate": 0.5586
+  },
+  "economic_impact": {
+    "false_alarm_cost_usd": 545500,
+    "missed_attack_cost_usd": 1296000000,
+    "value_delivered_usd": 185200000,
+    "net_value_usd": -1111345500
+  },
+  "generated_at": "2026-02-08T10:12:09.133687"
+}

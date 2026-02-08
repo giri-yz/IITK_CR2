@@ -1,0 +1,1008 @@
+/* ============================================
+   REALISTIC INDUSTRIAL WATER TREATMENT PLANT
+   ============================================ */
+
+.plant-diagram-container {
+  background: linear-gradient(135deg, #0A0E1A 0%, #151B2E 100%);
+  border-radius: 16px;
+  border: 2px solid rgba(59, 130, 246, 0.2);
+  padding: 24px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ===== HEADER SECTION ===== */
+
+.plant-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+  background: linear-gradient(90deg, 
+    rgba(59, 130, 246, 0.05) 0%, 
+    transparent 50%,
+    rgba(59, 130, 246, 0.05) 100%
+  );
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-icon {
+  font-size: 48px;
+  filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.4));
+}
+
+.header-text h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #F1F5F9;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.5px;
+}
+
+.header-text p {
+  font-size: 13px;
+  color: #94A3B8;
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.system-metrics {
+  display: flex;
+  gap: 24px;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.metric-label {
+  font-size: 11px;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.metric-value {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  color: #F1F5F9;
+}
+
+.metric-value.status-normal {
+  color: #4ADE80;
+  text-shadow: 0 0 8px rgba(74, 222, 128, 0.5);
+}
+
+.metric-value.status-critical {
+  color: #F87171;
+  text-shadow: 0 0 8px rgba(248, 113, 113, 0.5);
+  animation: critical-blink 1s ease-in-out infinite;
+}
+
+/* ===== PROCESS FLOW LAYOUT ===== */
+
+.process-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  overflow-x: auto;
+  padding: 20px 0;
+}
+
+.process-flow::-webkit-scrollbar {
+  height: 8px;
+}
+
+.process-flow::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 4px;
+}
+
+.process-flow::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 4px;
+}
+
+/* ===== PROCESS STAGE ===== */
+
+.process-stage {
+  flex-shrink: 0;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: linear-gradient(180deg, 
+    rgba(30, 41, 59, 0.6) 0%, 
+    rgba(15, 23, 42, 0.8) 100%
+  );
+  border: 2px solid rgba(71, 85, 105, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.process-stage:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.process-stage.stage-attacked {
+  border-color: rgba(239, 68, 68, 0.8);
+  background: linear-gradient(180deg, 
+    rgba(127, 29, 29, 0.3) 0%, 
+    rgba(15, 23, 42, 0.9) 100%
+  );
+  animation: stage-alarm 1.5s ease-in-out infinite;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(239, 68, 68, 0.4);
+}
+
+/* ===== STAGE HEADER ===== */
+
+.stage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.stage-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stage-icon {
+  font-size: 32px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.stage-text h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #F1F5F9;
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+}
+
+.stage-text p {
+  font-size: 11px;
+  color: #94A3B8;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.attack-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(220, 38, 38, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.6);
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #FCA5A5;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  animation: attack-flash 0.8s ease-in-out infinite;
+}
+
+.attack-pulse {
+  width: 8px;
+  height: 8px;
+  background: #EF4444;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.8);
+  animation: pulse-dot 1s ease-in-out infinite;
+}
+
+/* ===== 3D INDUSTRIAL TANK ===== */
+
+.industrial-tank {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 16px 0;
+}
+
+/* Tank Top Cap */
+.tank-cap {
+  width: 140px;
+  height: 30px;
+  background: linear-gradient(180deg, #475569 0%, #334155 100%);
+  border: 2px solid #1E293B;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  position: relative;
+  box-shadow: 
+    inset 0 2px 4px rgba(255, 255, 255, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.cap-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  font-weight: 700;
+  color: #F1F5F9;
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.vent-pipe {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 16px;
+  background: linear-gradient(90deg, #334155 0%, #475569 50%, #334155 100%);
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Tank Body - Realistic 3D Cylinder */
+.tank-body {
+  width: 160px;
+  height: 280px;
+  background: 
+    linear-gradient(90deg, 
+      rgba(15, 23, 42, 0.4) 0%,
+      rgba(30, 41, 59, 0.6) 20%,
+      rgba(51, 65, 85, 0.3) 50%,
+      rgba(30, 41, 59, 0.6) 80%,
+      rgba(15, 23, 42, 0.4) 100%
+    );
+  border: 3px solid #1E293B;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    inset 8px 0 16px rgba(0, 0, 0, 0.4),
+    inset -8px 0 16px rgba(0, 0, 0, 0.4),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.3),
+    0 8px 24px rgba(0, 0, 0, 0.6);
+  
+  /* Glass/transparent tank effect */
+  backdrop-filter: blur(1px);
+}
+
+.tank-body.tank-attacked {
+  border-color: #DC2626;
+  animation: tank-vibration 0.15s ease-in-out infinite;
+  box-shadow: 
+    inset 8px 0 16px rgba(220, 38, 38, 0.2),
+    inset -8px 0 16px rgba(220, 38, 38, 0.2),
+    0 8px 24px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+/* Water Fill - Realistic Liquid Physics */
+.water-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0 0 5px 5px;
+  box-shadow: 
+    inset 0 4px 8px rgba(255, 255, 255, 0.15),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.2),
+    0 -4px 12px rgba(6, 182, 212, 0.3);
+}
+
+.water-fill.water-turbulent {
+  animation: water-chaos 0.4s ease-in-out infinite;
+  box-shadow: 
+    inset 0 4px 8px rgba(255, 100, 100, 0.3),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3),
+    0 -4px 16px rgba(239, 68, 68, 0.5);
+}
+
+/* Realistic Water Surface */
+.water-surface {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  overflow: hidden;
+}
+
+.wave {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.3) 0%,
+    transparent 70%
+  );
+  animation: wave-motion 3s ease-in-out infinite;
+}
+
+.wave-1 {
+  animation-delay: 0s;
+  opacity: 0.6;
+}
+
+.wave-2 {
+  animation-delay: 1s;
+  opacity: 0.4;
+}
+
+.wave-3 {
+  animation-delay: 2s;
+  opacity: 0.3;
+}
+
+/* Bubbles for Aeration Effect */
+.bubbles-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  bottom: 0;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle at 30% 30%, 
+    rgba(255, 255, 255, 0.8), 
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 50%;
+  animation: bubble-rise 3s ease-in infinite;
+  box-shadow: 
+    inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+    0 0 4px rgba(255, 255, 255, 0.4);
+}
+
+/* UV Light Effect */
+.uv-light-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(168, 85, 247, 0.15) 0%,
+    transparent 60%
+  );
+  animation: uv-pulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Tank Reflection/Glass Effect */
+.tank-reflection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+  border-radius: 8px 0 0 8px;
+}
+
+/* Level Measurement Markers */
+.level-markers {
+  position: absolute;
+  left: -30px;
+  top: 0;
+  bottom: 0;
+  width: 25px;
+}
+
+.marker {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  font-size: 9px;
+  color: #64748B;
+  font-family: 'Courier New', monospace;
+}
+
+.marker::after {
+  content: '';
+  width: 8px;
+  height: 1px;
+  background: #475569;
+  margin-left: 4px;
+}
+
+.marker-100 { top: 0%; }
+.marker-75 { top: 25%; }
+.marker-50 { top: 50%; }
+.marker-25 { top: 75%; }
+
+/* Digital Level Display */
+.level-display {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 2px solid #3B82F6;
+  border-radius: 6px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.6),
+    0 0 12px rgba(59, 130, 246, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.level-number {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  color: #60A5FA;
+  line-height: 1;
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.6);
+}
+
+.level-mm {
+  font-size: 10px;
+  color: #94A3B8;
+  font-family: 'Courier New', monospace;
+  margin-top: 2px;
+}
+
+/* Tank Base */
+.tank-base {
+  width: 160px;
+  height: 30px;
+  background: linear-gradient(180deg, #334155 0%, #1E293B 100%);
+  border: 2px solid #0F172A;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  position: relative;
+  box-shadow: 
+    inset 0 -2px 4px rgba(255, 255, 255, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.6);
+  margin-top: -2px;
+}
+
+.base-outlet {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(180deg, #1E293B 0%, #0F172A 100%);
+  border: 2px solid #0F172A;
+  border-radius: 0 0 50% 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* ===== CONTROL PANEL ===== */
+
+.control-panel {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(71, 85, 105, 0.5);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.control-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background: rgba(30, 41, 59, 0.6);
+  border-radius: 6px;
+  border: 1px solid rgba(71, 85, 105, 0.3);
+}
+
+.control-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #CBD5E1;
+  font-family: 'Courier New', monospace;
+}
+
+.control-icon {
+  font-size: 14px;
+}
+
+.control-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.display-value {
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  color: #F1F5F9;
+  text-shadow: 0 0 4px rgba(59, 130, 246, 0.3);
+}
+
+/* Status LEDs */
+.status-led {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 
+    0 0 8px currentColor,
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.led-normal {
+  background: #4ADE80;
+  color: #4ADE80;
+  animation: led-blink-normal 2s ease-in-out infinite;
+}
+
+.led-critical {
+  background: #EF4444;
+  color: #EF4444;
+  animation: led-blink-critical 0.5s ease-in-out infinite;
+}
+
+.led-active {
+  background: #60A5FA;
+  color: #60A5FA;
+  animation: led-steady 1.5s ease-in-out infinite;
+}
+
+.led-inactive {
+  background: #475569;
+  color: #475569;
+  box-shadow: none;
+}
+
+.led-flow {
+  background: #06B6D4;
+  color: #06B6D4;
+  animation: led-flow-pulse 1s ease-in-out infinite;
+}
+
+/* Valve Indicator */
+.valve-indicator {
+  width: 60px;
+  height: 4px;
+  background: rgba(71, 85, 105, 0.5);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.valve-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #3B82F6 0%, #60A5FA 100%);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+}
+
+/* ===== CONNECTING PIPES ===== */
+
+.connecting-pipe {
+  flex-shrink: 0;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.pipe-horizontal {
+  width: 100%;
+  height: 24px;
+  background: linear-gradient(180deg, 
+    #475569 0%,
+    #64748B 20%,
+    #94A3B8 50%,
+    #64748B 80%,
+    #475569 100%
+  );
+  border: 2px solid #334155;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: 
+    inset 0 4px 8px rgba(0, 0, 0, 0.4),
+    inset 0 -4px 8px rgba(255, 255, 255, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.pipe-flange {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: radial-gradient(circle, 
+    #64748B 0%,
+    #475569 60%,
+    #334155 100%
+  );
+  border: 2px solid #1E293B;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.6),
+    inset 0 2px 4px rgba(255, 255, 255, 0.2);
+}
+
+.pipe-flange::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  background: #1E293B;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.pipe-flange-left { left: -16px; }
+.pipe-flange-right { right: -16px; }
+
+/* Animated Flow Particles */
+.flow-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.flow-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #60A5FA;
+  border-radius: 50%;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: flow-move 2s linear infinite;
+  box-shadow: 0 0 8px currentColor;
+  opacity: 0.8;
+}
+
+.flow-animation.flow-disrupted .flow-particle {
+  animation: flow-erratic 1.5s ease-in-out infinite;
+}
+
+/* Inline Pump Unit */
+.inline-pump {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, 
+    #334155 0%,
+    #475569 50%,
+    #334155 100%
+  );
+  border: 3px solid #1E293B;
+  border-radius: 50%;
+  position: relative;
+  margin-top: 8px;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.6),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.inline-pump.pump-running {
+  animation: pump-vibrate 0.1s ease-in-out infinite;
+}
+
+.pump-motor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle, 
+    #60A5FA 0%,
+    #3B82F6 100%
+  );
+  border-radius: 50%;
+  box-shadow: 
+    0 0 12px rgba(59, 130, 246, 0.6),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.pump-running .pump-motor {
+  animation: motor-spin 1s linear infinite;
+}
+
+.motor-shaft {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 3px;
+  background: #0F172A;
+  border-radius: 2px;
+}
+
+.pump-label {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  font-weight: 700;
+  color: #64748B;
+  font-family: 'Courier New', monospace;
+  white-space: nowrap;
+}
+
+/* ===== FOOTER STATS ===== */
+
+.plant-footer {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 2px solid rgba(59, 130, 246, 0.2);
+}
+
+.footer-stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 16px;
+}
+
+.stat-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 20px;
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(71, 85, 105, 0.3);
+  border-radius: 8px;
+  min-width: 120px;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  color: #F1F5F9;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes critical-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes stage-alarm {
+  0%, 100% {
+    box-shadow: 
+      0 8px 24px rgba(0, 0, 0, 0.6),
+      0 0 20px rgba(239, 68, 68, 0.4);
+  }
+  50% {
+    box-shadow: 
+      0 8px 24px rgba(0, 0, 0, 0.6),
+      0 0 40px rgba(239, 68, 68, 0.8);
+  }
+}
+
+@keyframes attack-flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% { 
+    transform: scale(1.3);
+    opacity: 0.7;
+  }
+}
+
+@keyframes tank-vibration {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+@keyframes water-chaos {
+  0%, 100% { 
+    transform: translateY(0) scaleY(1);
+  }
+  25% { 
+    transform: translateY(-4px) scaleY(0.98);
+  }
+  50% { 
+    transform: translateY(2px) scaleY(1.02);
+  }
+  75% { 
+    transform: translateY(-2px) scaleY(0.99);
+  }
+}
+
+@keyframes wave-motion {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-25%) translateY(-2px);
+  }
+  100% {
+    transform: translateX(0%) translateY(0);
+  }
+}
+
+@keyframes bubble-rise {
+  0% {
+    bottom: 0;
+    opacity: 0;
+    transform: translateX(0);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    bottom: 100%;
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+@keyframes uv-pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes led-blink-normal {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes led-blink-critical {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes led-steady {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes led-flow-pulse {
+  0%, 100% { 
+    opacity: 1;
+    box-shadow: 0 0 8px currentColor;
+  }
+  50% { 
+    opacity: 0.7;
+    box-shadow: 0 0 12px currentColor;
+  }
+}
+
+@keyframes flow-move {
+  0% {
+    left: -8px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% + 8px);
+    opacity: 0;
+  }
+}
+
+@keyframes flow-erratic {
+  0%, 100% {
+    left: 0%;
+    top: 50%;
+  }
+  25% {
+    left: 25%;
+    top: 30%;
+  }
+  50% {
+    left: 50%;
+    top: 70%;
+  }
+  75% {
+    left: 75%;
+    top: 40%;
+  }
+}
+
+@keyframes pump-vibrate {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1px); }
+}
+
+@keyframes motor-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+
+@media (max-width: 1400px) {
+  .process-stage {
+    width: 240px;
+  }
+  
+  .tank-body {
+    width: 140px;
+    height: 240px;
+  }
+  
+  .connecting-pipe {
+    width: 100px;
+  }
+}

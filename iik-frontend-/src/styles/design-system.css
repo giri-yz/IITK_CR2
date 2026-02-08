@@ -1,0 +1,185 @@
+/* ============================================
+   GENTWIN DESIGN SYSTEM
+   ============================================ */
+
+:root {
+  /* ===== COLORS ===== */
+  
+  /* Background Layers */
+  --bg-primary: #0A0E27;
+  --bg-secondary: #151B3D;
+  --bg-tertiary: #1E2749;
+  --bg-elevated: #252D4F;
+  
+  /* Text Colors */
+  --text-primary: #F9FAFB;
+  --text-secondary: #D1D5DB;
+  --text-muted: #9CA3AF;
+  --text-disabled: #6B7280;
+  
+  /* Border Colors */
+  --border-default: #374151;
+  --border-hover: #4B5563;
+  
+  /* Water Colors - Normal */
+  --water-clean: #06B6D4;
+  --water-clean-dark: #0891B2;
+  --water-gradient-start: #3B82F6;
+  --water-gradient-end: #06B6D4;
+  
+  /* Water Colors - States */
+  --water-toxic: #84CC16;
+  --water-overflow: #EF4444;
+  --water-underflow: #F59E0B;
+  
+  /* Status Colors */
+  --status-normal: #10B981;
+  --status-warning: #F59E0B;
+  --status-critical: #EF4444;
+  --status-attacked: #DC2626;
+  --status-mitigating: #8B5CF6;
+  --status-recovered: #06B6D4;
+  
+  /* Interactive */
+  --primary-blue: #3B82F6;
+  --primary-hover: #2563EB;
+  --danger-red: #EF4444;
+  --danger-hover: #DC2626;
+  
+  /* Chart Colors */
+  --chart-twin: #3B82F6;
+  --chart-real-normal: #10B981;
+  --chart-real-attack: #EF4444;
+  --chart-divergence: rgba(239, 68, 68, 0.15);
+  --chart-grid: rgba(255, 255, 255, 0.05);
+  --chart-axis: #6B7280;
+  
+  /* ===== TYPOGRAPHY ===== */
+  
+  /* Font Families */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', monospace;
+  
+  /* Font Sizes */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  
+  /* Font Weights */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  
+  /* Line Heights */
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+  
+  /* ===== SPACING ===== */
+  
+  --space-0: 0;
+  --space-1: 0.25rem;    /* 4px */
+  --space-2: 0.5rem;     /* 8px */
+  --space-3: 0.75rem;    /* 12px */
+  --space-4: 1rem;       /* 16px */
+  --space-5: 1.25rem;    /* 20px */
+  --space-6: 1.5rem;     /* 24px */
+  --space-8: 2rem;       /* 32px */
+  --space-10: 2.5rem;    /* 40px */
+  --space-12: 3rem;      /* 48px */
+  
+  /* ===== BORDER RADIUS ===== */
+  
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 0.75rem;   /* 12px */
+  --radius-xl: 1rem;      /* 16px */
+  --radius-full: 9999px;
+  
+  /* ===== SHADOWS ===== */
+  
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
+  
+  /* Glow Effects */
+  --glow-green: 0 0 20px rgba(16, 185, 129, 0.4);
+  --glow-blue: 0 0 20px rgba(59, 130, 246, 0.4);
+  --glow-red: 0 0 30px rgba(239, 68, 68, 0.5);
+  --glow-purple: 0 0 25px rgba(139, 92, 246, 0.4);
+  --glow-cyan: 0 0 20px rgba(6, 182, 212, 0.4);
+  
+  /* ===== ANIMATION TIMING ===== */
+  
+  --duration-instant: 100ms;
+  --duration-fast: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 800ms;
+  --duration-emphasis: 1200ms;
+  
+  /* Easing Functions */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ===== BASE RESET ===== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+input {
+  font-family: inherit;
+}
+
+/* ===== SCROLLBAR ===== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
+
